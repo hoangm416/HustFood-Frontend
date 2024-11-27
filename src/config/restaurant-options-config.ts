@@ -1,0 +1,22 @@
+export const cuisineList = [
+  "Cơm hộp",
+  "Mì phở bún",
+  "Bánh đa cua",
+  "Bánh mì",
+  "Cháo",
+  "Nem nướng",
+  "Đồ ăn vặt",
+  "Hải sản",
+  "Lẩu/Nướng",
+  "Đồ chay",
+  "Món Nhật",
+  "Món Hàn",
+  "Pizza",
+  "Trà sữa",
+  "Cà phê",
+  "Sinh tố",
+  "Bánh kem",
+  "Chè/Tráng miệng",
+  "Sữa chua",
+  "Hoa quả dầm"
+];
