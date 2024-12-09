@@ -19,7 +19,7 @@ export const useGetMyRestaurant = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to get restaurant");
+      throw new Error("Lấy thông tin quán ăn thất bại");
     }
     return response.json();
   };
@@ -49,7 +49,7 @@ export const useCreateMyRestaurant = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to create restaurant");
+      throw new Error("Tạo quán ăn thất bại");
     }
 
     return response.json();
@@ -63,11 +63,11 @@ export const useCreateMyRestaurant = () => {
   } = useMutation(createMyRestaurantRequest);
 
   if (isSuccess) {
-    toast.success("Restaurant created!");
+    toast.success("Tạo quán ăn thành công");
   }
 
   if (error) {
-    toast.error("Unable to update restaurant");
+    toast.error("Tạo quán ăn thất bại");
   }
 
   return { createRestaurant, isLoading };
@@ -90,7 +90,7 @@ export const useUpdateMyRestaurant = () => {
     });
 
     if (!response) {
-      throw new Error("Failed to update restaurant");
+      throw new Error("Cập nhật quán ăn thất bại");
     }
 
     return response.json();
@@ -104,11 +104,11 @@ export const useUpdateMyRestaurant = () => {
   } = useMutation(updateRestaurantRequest);
 
   if (isSuccess) {
-    toast.success("Restaurant Updated");
+    toast.success("Cập nhật quán ăn thành công");
   }
 
   if (error) {
-    toast.error("Unable to update restaurant");
+    toast.error("Không thể cập nhật quán ăn");
   }
 
   return { updateRestaurant, isLoading };
@@ -128,7 +128,7 @@ export const useGetMyRestaurantOrders = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch orders");
+      throw new Error("Không thể lấy danh sách đơn hàng");
     }
 
     return response.json();
@@ -168,7 +168,7 @@ export const useUpdateMyRestaurantOrder = () => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to update status");
+      throw new Error("Cập nhật đơn hàng thất bại");
     }
 
     return response.json();
@@ -183,11 +183,11 @@ export const useUpdateMyRestaurantOrder = () => {
   } = useMutation(updateMyRestaurantOrder);
 
   if (isSuccess) {
-    toast.success("Order updated");
+    toast.success("Cập nhật đơn hàng thành công");
   }
 
   if (isError) {
-    toast.error("Unable to update order");
+    toast.error("Cập nhật đơn hàng thất bại");
     reset();
   }
 

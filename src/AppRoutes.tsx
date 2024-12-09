@@ -39,6 +39,23 @@ const AppRoutes = () => {
           </Layout>
         }
       />
+      <Route
+        path="/about-us"
+        element={
+          <Layout>
+            <AboutUs />
+          </Layout>
+        }
+      />
+      <Route
+        path="/question"
+        element={
+          <Layout>
+            <Question />
+          </Layout>
+        }
+      />
+      
       <Route element={<ProtectedRoute />}>
         <Route
           path="/order-status"
@@ -61,22 +78,6 @@ const AppRoutes = () => {
           element={
             <Layout>
               <ManageRestaurantPage />
-            </Layout>
-          }
-        />
-        <Route
-          path="/about-us"
-          element={
-            <Layout>
-              <AboutUs />
-            </Layout>
-          }
-        />
-        <Route
-          path="/question"
-          element={
-            <Layout>
-              <Question />
             </Layout>
           }
         />

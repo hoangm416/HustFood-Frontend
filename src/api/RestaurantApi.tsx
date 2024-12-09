@@ -11,7 +11,7 @@ export const useGetRestaurant = (restaurantId?: string) => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to get restaurant");
+      throw new Error("Tìm kiếm quán ăn thất bại");
     }
 
     return response.json();
@@ -44,7 +44,7 @@ export const useSearchRestaurants = (
     );
 
     if (!response.ok) {
-      throw new Error("Failed to get restaurant");
+      throw new Error("Tìm kiếm quán ăn thất bại");
     }
 
     return response.json();

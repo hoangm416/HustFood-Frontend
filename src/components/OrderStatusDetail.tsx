@@ -28,7 +28,7 @@ const OrderStatusDetail = ({ order }: Props) => {
       <Separator />
       <div className="flex flex-col">
         <span className="font-bold">Tổng tiền</span>
-        <span>{order.totalAmount}đ</span>
+        <span>{order.totalAmount} đ</span>
       </div>
     </div>
   );

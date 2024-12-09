@@ -68,7 +68,7 @@ const OrderItemCard = ({ order }: Props) => {
           <div>
             Tổng tiền:
             <span className="ml-2 font-normal">
-              {order.totalAmount}đ
+              {order.totalAmount} đ
             </span>
           </div>
         </CardTitle>

@@ -18,7 +18,7 @@ export const useGetMyOrders = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to get orders");
+      throw new Error("Lấy thông tin đơn hàng thất bại");
     }
 
     return response.json();
@@ -71,7 +71,7 @@ export const useCreateCheckoutSession = () => {
     );
 
     if (!response.ok) {
-      throw new Error("Unable to create checkout session");
+      throw new Error("Tạo phiên thanh toán thất bại");
     }
 
     return response.json();

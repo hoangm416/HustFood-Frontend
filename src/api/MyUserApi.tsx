@@ -20,7 +20,7 @@ export const useGetMyUser = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch user");
+      throw new Error("Lấy thông tin người dùng thất bại");
     }
 
     return response.json();
@@ -59,7 +59,7 @@ export const useCreateMyUser = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to create user");
+      throw new Error("Thêm thông tin người dùng thất bại");
     }
   };
 
@@ -101,7 +101,7 @@ export const useUpdateMyUser = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to update user");
+      throw new Error("Cập nhật thông tin người dùng thất bại");
     }
 
     return response.json();
@@ -116,7 +116,7 @@ export const useUpdateMyUser = () => {
   } = useMutation(updateMyUserRequest);
 
   if (isSuccess) {
-    toast.success("User profile updated!");
+    toast.success("Cập nhật thông tin người dùng thành công");
   }
 
   if (error) {
