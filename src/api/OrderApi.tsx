@@ -18,7 +18,7 @@ export const useGetMyOrders = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Lấy thông tin đơn hàng thất bại");
+      throw new Error("Failed to fetch order information");
     }
 
     return response.json();
@@ -71,7 +71,7 @@ export const useCreateCheckoutSession = () => {
     );
 
     if (!response.ok) {
-      throw new Error("Tạo phiên thanh toán thất bại");
+      throw new Error("Failed to create payment session");
     }
 
     return response.json();
@@ -91,6 +91,54 @@ export const useCreateCheckoutSession = () => {
 
   return {
     createCheckoutSession,
+    isLoading,
+  };
+};
+
+type MomoWebhookRequest = {
+  orderId: string;
+  resultCode: number;
+};
+
+export const useMomoWebhookHandler = () => {
+  const { getAccessTokenSilently } = useAuth0();
+
+  const handleMomoWebhookRequest = async (
+    webhookRequest: MomoWebhookRequest
+  ) => {
+    const accessToken = await getAccessTokenSilently();
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/order/checkout/webhook`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(webhookRequest),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to handle MoMo webhook");
+    }
+  };
+
+  const {
+    mutateAsync: handleMomoWebhook,
+    isLoading,
+    error,
+    reset,
+  } = useMutation(handleMomoWebhookRequest);
+
+  if (error) {
+    toast.error(error.toString());
+    reset();
+  }
+
+  return {
+    handleMomoWebhook,
     isLoading,
   };
 };

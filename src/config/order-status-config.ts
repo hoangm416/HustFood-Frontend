@@ -8,8 +8,8 @@ type OrderStatusInfo = {
 
 export const ORDER_STATUS: OrderStatusInfo[] = [
   { label: "Đã đặt hàng", value: "placed", progressValue: 0 },
-  { label: "Đang chờ chủ quán xác nhận", value: "paid", progressValue: 25 },
-  { label: "Đang chuẩn bị đồ", value: "inProgress", progressValue: 50 },
+  { label: "Đã thanh toán", value: "paid", progressValue: 25 },
+  { label: "Đang chuẩn bị", value: "inProgress", progressValue: 50 },
   { label: "Đang giao hàng", value: "outForDelivery", progressValue: 75 },
-  { label: "Đã vận chuyển", value: "delivered", progressValue: 100 },
+  { label: "Giao hàng thành công", value: "delivered", progressValue: 100 },
 ];
