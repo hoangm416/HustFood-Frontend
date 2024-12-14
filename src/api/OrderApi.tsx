@@ -18,7 +18,7 @@ export const useGetMyOrders = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to fetch order information");
+      throw new Error("Lấy thông tin đơn hàng thất bại");
     }
 
     return response.json();
@@ -71,7 +71,7 @@ export const useCreateCheckoutSession = () => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to create payment session");
+      throw new Error("Tạo phiên thanh toán thất bại");
     }
 
     return response.json();
@@ -121,7 +121,7 @@ export const useMomoWebhookHandler = () => {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to handle MoMo webhook");
+      throw new Error("Xử lý webhook thất bại");
     }
   };
 
