@@ -39,7 +39,7 @@ const UserProfileForm = ({
   isLoading,
   currentUser,
   title = "Hồ sơ người dùng",
-  buttonText = "Submit",
+  buttonText = "Lưu thay đổi",
 }: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
