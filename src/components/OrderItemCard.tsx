@@ -65,12 +65,12 @@ const OrderItemCard = ({ order }: Props) => {
             Giờ đặt hàng:
             <span className="ml-2 font-normal">{getTime()}</span>
           </div>
-          <div>
+          {/* <div>
             Tổng tiền:
             <span className="ml-2 font-normal">
               {order.totalAmount} đ
             </span>
-          </div>
+          </div> */}
         </CardTitle>
         <Separator />
       </CardHeader>

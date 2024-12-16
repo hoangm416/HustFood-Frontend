@@ -26,10 +26,10 @@ const OrderStatusDetail = ({ order }: Props) => {
         </ul>
       </div>
       <Separator />
-      <div className="flex flex-col">
+      {/* <div className="flex flex-col">
         <span className="font-bold">Tổng tiền</span>
         <span>{order.totalAmount} đ</span>
-      </div>
+      </div> */}
     </div>
   );
 };
