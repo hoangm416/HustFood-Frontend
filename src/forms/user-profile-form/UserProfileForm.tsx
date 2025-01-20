@@ -50,6 +50,40 @@ const UserProfileForm = ({
     form.reset(currentUser);
   }, [currentUser, form]);
 
+  // Hàm xử lý định vị và lấy địa chỉ từ OpenStreetMap (Nominatim)
+  const handleLocation = async () => {
+    if (!navigator.geolocation) {
+      alert("Trình duyệt của bạn không hỗ trợ định vị.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+          );
+          const data = await response.json();
+
+          if (data && data.display_name) {
+            form.setValue("addressLine1", data.display_name);
+          } else {
+            alert("Không thể xác định địa chỉ.");
+          }
+        } catch (error) {
+          console.error("Lỗi khi gọi API Nominatim:", error);
+          alert("Đã xảy ra lỗi khi xác định địa chỉ.");
+        }
+      },
+      (error) => {
+        alert("Không thể truy cập vị trí của bạn.");
+        console.error(error);
+      }
+    );
+  };
+
   return (
     <Form {...form}>
       <form
@@ -100,6 +134,13 @@ const UserProfileForm = ({
                   <Input {...field} className="bg-white" />
                 </FormControl>
                 <FormMessage />
+                <Button
+                  type="button"
+                  onClick={handleLocation}
+                  className="mt-2 bg-blue-500"
+                >
+                  Sử dụng định vị
+                </Button>
               </FormItem>
             )}
           />
@@ -133,9 +174,11 @@ const UserProfileForm = ({
         {isLoading ? (
           <LoadingButton />
         ) : (
-          <Button type="submit" className="bg-orange-500">
-            {buttonText}
-          </Button>
+          <div className="flex justify-center items-center">
+            <Button type="submit" className="bg-orange-500">
+              {buttonText}
+            </Button>
+          </div>
         )}
       </form>
     </Form>
